@@ -6,17 +6,18 @@
     --surface-hover: #F9F7F4; 
     --accent: #4B6587; 
     --highlight: #FF8C56; 
-    
+    --dark: #2D3047; 
     box-sizing: border-box;
     margin: 0 0;
     padding: 0 0;
 }
 
-.fraunces-heading {
+.fraunces-heading, h5 {
     font-family: "Fraunces", serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    color: var(--dark);
     font-variation-settings:
       "SOFT" 100,
       "WONK" 1;
@@ -27,6 +28,7 @@
     font-optical-sizing: auto;
     font-weight: normal;
     font-style: normal;
+    color: var(--dark); 
   }
 
 body{
@@ -43,6 +45,33 @@ body{
 
 .card{
     background-color: var(--background);
+    border-radius: 1rem;
 }
 
+.sf-card > .card {
+    background-color: var(--surface-hover);
+}
+.btn-outline-primary {
+    color: var(--secondary); 
+    background-color: transparent; 
+    border: solid 1px var(--secondary);
+}
+.btn-outline-primary:hover{
+    color: var(--surface);
+    background-color: var(--accent);
+    border: solid 1px var(--accent);
+}
 
+a > .bi{
+    color: var(--secondary);
+    /* background-color: var(--secondary); */
+}
+
+a > .bi:hover {
+    color: var(--accent);
+}
+
+::selection {
+    color: var(--surface); 
+    background-color: var(--dark);
+}
