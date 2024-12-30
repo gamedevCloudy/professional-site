@@ -75,3 +75,18 @@ a > .bi:hover {
     color: var(--surface); 
     background-color: var(--dark);
 }
+
+.dialogbox {
+    background: linear-gradient(
+        
+        transparent, 
+        var(--secondary)
+    );
+    background: linear-gradient(
+        
+        transparent 90%, 
+        #4B658788 98%
+    );
+    border: 1px solid var(--secondary); 
+    border-radius: 8px;
+}
