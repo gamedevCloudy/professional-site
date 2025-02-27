@@ -80,15 +80,11 @@ a > .bi:hover {
 .dialogbox {
     background: linear-gradient(
         
-        transparent, 
-        var(--secondary)
+        transparent,
+        transparent 98%, 
+        var(--accent)
     );
-    background: linear-gradient(
-        
-        transparent 90%, 
-        #4B658700 91%,
-        #4B658744 98%
-    );
+    
     border: 1px solid var(--secondary); 
     border-radius: 8px;
 }
