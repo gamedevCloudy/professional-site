@@ -3,238 +3,748 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aayush Chaudhary | AI Engineer</title>
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
+
+    <!-- Icons -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
-    <title>Aayush's worklife</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dark: "#121212",
+              darkAccent: "#1e1e1e",
+              accent1: "#8a6bce", // pastel purple
+              accent2: "#ff7e67", // pastel orange
+              light: "#f0f0f0",
+              muted: "#a0a0a0",
+            },
+            fontFamily: {
+              fraunces: ['"Fraunces"', "serif"],
+              inter: ['"Inter"', "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .gradient-blur {
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.15;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .gradient-text {
+        background: linear-gradient(90deg, #8a6bce, #ff7e67);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .animated-link {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .animated-link::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: linear-gradient(90deg, #8a6bce, #ff7e67);
+        transition: width 0.3s ease;
+      }
+
+      .animated-link:hover::after {
+        width: 100%;
+      }
+
+      .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 20px rgba(138, 107, 206, 0.15);
+      }
+
+      /* Subtle grain texture for the background */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('data:image/svg+xml;charset=utf-8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.15 0"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+        opacity: 0.03;
+        pointer-events: none;
+        z-index: -1;
+      }
+    </style>
   </head>
-  <body class="inter-body">
-    <!-- NavBar -->
-    <nav class="navbar navbar-light">
-      <a class="navbar-brand fraunces-heading" href="#">
-        <img
-          src="/assets/brand/logo-filled-light.svg"
-          width="30"
-          height="30"
-          class="d-inline-block align-top"
-          alt=""
-        />
-        Aayush Chaudhary
-      </a>
-    </nav>
-    <div class="display-4 d-flex justify-content-around container mt-5">
-      <div class="p-2">
-        <p>
-          AI Enginner <u>building products</u> that help brands connect with
-          audiences
-        </p>
-        <div class="mt-5 p-2">
-          <a href="https://github.com/gamedevCloudy"
-            ><i class="bi bi-github"></i
-          ></a>
-          <a href="https://in.linkedin.com/in/aayush-chaudhary-2b7b99208">
-            <i class="bi bi-linkedin"></i
-          ></a>
-        </div>
-      </div>
-      <div class="hide d-none d-lg-block p-2 mx-auto float-right">
-        <img src="assets/other/ascii-art.png" alt="profile photo in ascii" />
-      </div>
-    </div>
 
-    <div class="mt-5 bg-white p-4">
-      <div class="m-4 p-2">
-        <h2>WORK</h2>
-        <div class="container card-group">
-          <div class="card m-2">
-            <img
-              class="card-img-top"
-              src="assets/projects/ankurwarikoo.png"
-              alt="ankur ai"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Take Charge of Your Time</h5>
-              <p class="card-subtitle mb-2 text-muted">Agents| RAG</p>
-              <p>
-                WebVeda Course Bot - a bot to solve your doubts on course
-                materials - tuned specifically for Ankur Warikoo
-              </p>
-              <a href="#" class="card-link">Visit</a>
-            </div>
-          </div>
+  <body class="bg-dark text-light font-inter min-h-screen">
+    <!-- Background Gradient Blurs -->
+    <div class="gradient-blur bg-accent1 top-0 left-20"></div>
+    <div class="gradient-blur bg-accent2 bottom-0 right-20"></div>
 
-          <div class="card m-2">
-            <img
-              class="card-img-top"
-              src="assets/projects/cava.png"
-              alt="cava ai"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Cava AI</h5>
-              <p class="card-subtitle mb-2 text-muted">Agents | RAG</p>
-              <p>
-                Sales bot to cover all your customer doubts and make
-                personalized suggesstions.
-              </p>
-              <a
-                href="https://altrdtech.com/projects/d2c-sales-bot"
-                class="card-link"
-                >Visit</a
-              >
-            </div>
-          </div>
-
-          <div class="card m-2">
-            <img
-              class="card-img-top"
-              src="assets/projects/vi.png"
-              alt="VI music"
-            />
-            <div class="card-body">
-              <h5 class="card-title">VI Business Jingle</h5>
-              <p class="card-subtitle mb-2 text-muted">AI Music</p>
-              <p>generate business jingles for your business</p>
-              <a
-                href="https://altrdtech.com/projects/ai-powered-business-jingle-ad-creator"
-                class="card-link"
-                >Visit</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="m-4 p-2">
-      <h2>PROJECTS</h2>
-      <div class="container p-2 my-4">
-        <p style="font-size: 1.2rem" class="fraunces-heading font-weight-bold">
-          A list of projects I am exploring for early 2025. These align with my
-          technical interests in language models, interpretability, and AI
-          alignment.
-        </p>
-      </div>
-      <div class="container card-group sf-card">
-        <div class="card m-2">
-          <div class="card-body">
-            <p class="card-subtitle mb-2 text-muted"><b>AI | LLM</b></p>
-            <h5 class="card-title">Evaluating Large Language Models</h5>
-            <p>Built as part of CS324 Large Language Models</p>
-            <!-- <a href="#" class="card-link">Visit</a> -->
-          </div>
-        </div>
-
-        <div class="card m-2">
-          <div class="card-body">
-            <p class="card-subtitle mb-2 text-muted">
-              <b>AI | Interpretability</b>
-            </p>
-            <h5 class="card-title">ATTN1</h5>
-            <p>
-              an interactive visualization of attention between tokens in a
-              language model
-            </p>
-            <a
-              href="https://github.com/gamedevCloudy/attention-visualization"
-              class="card-link"
-              >Visit</a
-            >
-          </div>
-        </div>
-
-        <div class="card m-2">
-          <div class="card-body">
-            <p class="card-subtitle mb-2 text-muted">
-              <b>AI | Interpretability</b>
-            </p>
-            <h5 class="card-title">Garcon Lite</h5>
-            <p>
-              a small tool that allows to easily access locally hosted LLMs
-              internals from a jupyter notebook
-            </p>
-            <!-- <a href="#" class="card-link">Visit</a> -->
-          </div>
-        </div>
-        <div class="container dialogbox p-2 my-4">
-          <p>Why include these upcoming projects?</p>
-          <p>
-            These serve as my <i>Lighthouse</i>, helping focus my technical
-            development in areas I'm passionate about. They represent the kind
-            of complex challenges in AI systems that I'm eager to understand and
-            contribute to as I continue growing in this field.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="my-4 p-4 d-flex flex-column flex-lg-row justify-content-around"
-      style="background-color: var(--surface-hover); color: var(--seondary)"
+    <!-- Header with Fixed Position -->
+    <header
+      class="fixed top-0 left-0 right-0 bg-dark bg-opacity-80 backdrop-blur-md z-50 py-4"
     >
-      <div class="col-2 p-2 m-2">
-        <h2 class="display-4 fraunces-heading">and yes, I make games too</h2>
+      <div class="container mx-auto px-6 flex justify-between items-center">
+        <a href="#" class="font-fraunces text-xl font-medium">AC.</a>
+        <nav class="hidden md:flex space-x-8">
+          <a href="#about" class="animated-link">About</a>
+          <a href="#experience" class="animated-link">Experience</a>
+          <a href="#projects" class="animated-link">Projects</a>
+          <a href="#contact" class="animated-link">Contact</a>
+        </nav>
+        <div class="flex space-x-5">
+          <a
+            href="https://github.com/gamedevCloudy"
+            target="_blank"
+            class="text-muted hover:text-accent1 transition-colors duration-300"
+          >
+            <i class="bi bi-github text-lg"></i>
+          </a>
+          <a
+            href="https://in.linkedin.com/in/aayush-chaudhary-2b7b99208"
+            target="_blank"
+            class="text-muted hover:text-accent1 transition-colors duration-300"
+          >
+            <i class="bi bi-linkedin text-lg"></i>
+          </a>
+          <a
+            href="https://cloudyin.itch.io"
+            target="_blank"
+            class="text-muted hover:text-accent1 transition-colors duration-300"
+          >
+            <i class="bi bi-controller text-lg"></i>
+          </a>
+        </div>
       </div>
+    </header>
 
-      <div class="d-flex flex-row align-items-end justify-content-start">
-        <a class="btn btn-outline-primary m-2" href="https://cloudyin.itch.io">
-          itch.io
-        </a>
-        <a
-          class="btn btn-outline-primary m-2"
-          href="https://aayushakacloudy.is-a.dev/portfolio"
-        >
-          games protfolio
-        </a>
-      </div>
-    </div>
-    <footer>
-      <div class="p-4 dark">
-        <div class="container d-flex flex-column flex-lg-row">
-          <div class="col">
-            <p clas="fraunces-heading">© 2025 Aayush Chaudhary</p>
-          </div>
-          <div class="col d-flex flex-column align-items-end">
-            <h6>Social Links</h6>
-            <a href="https://github.com/gamedevCloudy">GitHub</a>
-            <a href="https://aayushakacloudy.is-a.dev/links">LinkTree</a>
-            <a href="https://in.linkedin.com/in/aayush-chaudhary-2b7b99208"
-              >LinkedIn</a
+    <!-- Main Content -->
+    <main class="pt-24">
+      <!-- Hero Section -->
+      <section class="min-h-screen flex items-center">
+        <div class="container mx-auto px-6">
+          <div class="max-w-3xl">
+            <h1
+              class="font-fraunces text-4xl md:text-6xl font-bold leading-tight mb-6"
             >
-            <a href="https://youtube.com/c/AayushChaudharyGames">YouTube</a>
+              Aayush Chaudhary
+            </h1>
+            <h2 class="text-2xl md:text-3xl mb-6 gradient-text font-fraunces">
+              AI Engineer
+            </h2>
+            <p class="text-lg md:text-xl text-muted mb-10 max-w-2xl">
+              Focused on <span class="text-accent1">interpretability</span> and
+              <span class="text-accent2">safety</span>. Building AI systems that
+              are transparent, understandable, and aligned with human values.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#projects"
+                class="bg-darkAccent hover:bg-opacity-80 px-8 py-3 rounded-md transition-all duration-300 text-center"
+              >
+                View Project
+              </a>
+              <a
+                href="#contact"
+                class="border border-darkAccent hover:border-accent1 px-8 py-3 rounded-md transition-all duration-300 text-center"
+              >
+                Get in Touch
+              </a>
+            </div>
           </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-24">
+        <div class="container mx-auto px-6">
+          <div class="max-w-3xl mx-auto">
+            <h2
+              class="font-fraunces text-3xl font-bold mb-12 relative inline-block"
+            >
+              About
+              <span
+                class="absolute bottom-0 left-0 w-1/2 h-1 bg-gradient-to-r from-accent1 to-accent2"
+              ></span>
+            </h2>
+
+            <div class="space-y-8">
+              <p class="text-lg">
+                High-agency AI Engineer driven by continuous learning,
+                specializing in AI research with a focus on interpretability and
+                safety. Proactively stays current with emerging technologies
+                while bridging technical expertise and creative problem-solving
+                across AI, Linux, and game development domains.
+              </p>
+
+              <div>
+                <h3 class="text-xl font-medium mb-3">Education</h3>
+                <div class="bg-darkAccent p-4 rounded-lg">
+                  <div class="flex flex-col md:flex-row justify-between">
+                    <div>
+                      <p class="font-medium">
+                        Savitribai Phule Pune University
+                      </p>
+                      <p class="text-muted">
+                        BE in Artificial Intelligence & Data Science
+                      </p>
+                    </div>
+                    <p class="text-accent1">2021 – 2025</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-medium mb-3">Technical Skills</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-darkAccent px-3 py-1 rounded-md text-sm"
+                    >Python</span
+                  >
+                  <span class="bg-darkAccent px-3 py-1 rounded-md text-sm"
+                    >PyTorch</span
+                  >
+                  <span class="bg-darkAccent px-3 py-1 rounded-md text-sm"
+                    >Langchain</span
+                  >
+                  <span class="bg-darkAccent px-3 py-1 rounded-md text-sm"
+                    >FastAPI</span
+                  >
+                  <span class="bg-darkAccent px-3 py-1 rounded-md text-sm"
+                    >Docker</span
+                  >
+                  <span class="bg-darkAccent px-3 py-1 rounded-md text-sm"
+                    >GCP</span
+                  >
+                  <span class="bg-darkAccent px-3 py-1 rounded-md text-sm"
+                    >Linux</span
+                  >
+                  <span class="bg-darkAccent px-3 py-1 rounded-md text-sm"
+                    >C++</span
+                  >
+                  <span class="bg-darkAccent px-3 py-1 rounded-md text-sm"
+                    >SQL</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="py-24 bg-darkAccent bg-opacity-30">
+        <div class="container mx-auto px-6">
+          <div class="max-w-3xl mx-auto">
+            <h2
+              class="font-fraunces text-3xl font-bold mb-12 relative inline-block"
+            >
+              Experience
+              <span
+                class="absolute bottom-0 left-0 w-1/2 h-1 bg-gradient-to-r from-accent1 to-accent2"
+              ></span>
+            </h2>
+
+            <div class="space-y-12">
+              <!-- Experience 1 -->
+              <div class="card bg-darkAccent p-6 rounded-lg">
+                <div class="flex flex-col md:flex-row justify-between mb-4">
+                  <div>
+                    <h3 class="font-fraunces text-xl font-medium gradient-text">
+                      AI Engineer
+                    </h3>
+                    <p class="text-light">Altrd – Mumbai</p>
+                  </div>
+                  <p class="text-muted">Jul 2024 – Present</p>
+                </div>
+                <ul class="space-y-2 text-muted list-inside">
+                  <li>
+                    Engineered AI backend for meeting transcription, improving
+                    speaker identification by 40%
+                  </li>
+                  <li>
+                    Improved personalized product recommendation systems by 85%
+                  </li>
+                  <li>
+                    Developed Gen AI applications with NLP, LLM fine-tuning, and
+                    RAG systems
+                  </li>
+                  <li>
+                    Implemented solutions using Flask/FastAPI with Docker on GCP
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Experience 2 -->
+              <div class="card bg-darkAccent p-6 rounded-lg">
+                <div class="flex flex-col md:flex-row justify-between mb-4">
+                  <div>
+                    <h3 class="font-fraunces text-xl font-medium gradient-text">
+                      Research Intern
+                    </h3>
+                    <p class="text-light">AI Institute of South Carolina</p>
+                  </div>
+                  <p class="text-muted">Sept 2024 – Present</p>
+                </div>
+                <ul class="space-y-2 text-muted list-inside">
+                  <li>
+                    Researched attack techniques for state-of-the-art
+                    text-to-image models
+                  </li>
+                  <li>
+                    Working on AI Safety and Alignment under Prof. Amitava Das
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="py-24">
+        <div class="container mx-auto px-6">
+          <div class="max-w-3xl mx-auto">
+            <h2
+              class="font-fraunces text-3xl font-bold mb-12 relative inline-block"
+            >
+              Projects
+              <span
+                class="absolute bottom-0 left-0 w-1/2 h-1 bg-gradient-to-r from-accent1 to-accent2"
+              ></span>
+            </h2>
+
+            <!-- CavaAthleisure AI Project -->
+            <div class="card bg-darkAccent p-6 rounded-lg mb-10">
+              <h3 class="font-fraunces text-2xl font-medium mb-3">
+                CavaAthleisure AI Shopping Assistant
+              </h3>
+              <p class="text-muted mb-6">
+                Agentic conversational AI system that provides personalized
+                fitness apparel recommendations
+              </p>
+
+              <div class="mb-6">
+                <div
+                  class="h-72 bg-dark rounded-lg flex items-center justify-center mb-4 overflow-hidden relative"
+                >
+                  <div class="absolute inset-0 flex flex-col md:flex-row">
+                    <div
+                      class="bg-darkAccent w-full md:w-1/3 p-4 border-r border-dark flex flex-col"
+                    >
+                      <div class="mb-3 text-sm font-medium gradient-text">
+                        CavaBot
+                      </div>
+                      <div class="bg-dark rounded-lg p-3 mb-3 text-xs">
+                        Hi Sarah! Based on your marathon training and previous
+                        purchases, I'd recommend our Ultra Flex leggings in
+                        sage. They have enhanced compression for long runs and
+                        match your color preferences.
+                      </div>
+                      <div
+                        class="bg-dark rounded-lg p-3 mb-3 text-xs text-right"
+                      >
+                        Do those have a pocket for my phone?
+                      </div>
+                      <div class="bg-dark rounded-lg p-3 text-xs">
+                        Yes! The Ultra Flex leggings have a zippered side pocket
+                        that fits most smartphones. Should I add size 6 to your
+                        cart? Your last 3 leggings purchases were this size.
+                      </div>
+                    </div>
+                    <div class="hidden md:flex flex-col w-2/3 p-4">
+                      <div class="text-sm mb-2">Customer Profile:</div>
+                      <div class="flex flex-wrap gap-2 text-xs">
+                        <span class="bg-dark px-2 py-1 rounded"
+                          >Marathon runner</span
+                        >
+                        <span class="bg-dark px-2 py-1 rounded"
+                          >Prefers earth tones</span
+                        >
+                        <span class="bg-dark px-2 py-1 rounded">Size 6</span>
+                        <span class="bg-dark px-2 py-1 rounded"
+                          >Tall frame</span
+                        >
+                        <span class="bg-dark px-2 py-1 rounded"
+                          >Previous purchases: 5</span
+                        >
+                      </div>
+                      <div class="mt-4 p-3 bg-dark rounded-lg text-xs flex-1">
+                        <div class="text-accent1 mb-2">Agent Actions:</div>
+                        <ul class="space-y-1">
+                          <li>• Retrieved customer profile from database</li>
+                          <li>• Analyzed purchase history patterns</li>
+                          <li>• Cross-referenced with workout preferences</li>
+                          <li>
+                            • Matched to inventory with 92% relevance score
+                          </li>
+                          <li>• Generated personalized recommendation</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <p class="text-muted">
+                  Developed an advanced conversational RAG chatbot for
+                  CavaAthleisure that provides hyper-personalized shopping
+                  recommendations based on customer data. The system
+                  intelligently integrates multiple data streams including user
+                  fit preferences, body type, workout habits, color preferences,
+                  and purchase history to deliver contextually relevant product
+                  suggestions in a natural conversation flow.
+                </p>
+              </div>
+
+              <div class="bg-dark p-4 rounded-lg mb-6">
+                <h4 class="font-medium mb-3">Key Technical Features:</h4>
+                <ul class="space-y-2 text-muted list-inside text-sm">
+                  <li>
+                    • Multi-vector RAG system with memory persistence for
+                    contextual conversations
+                  </li>
+                  <li>
+                    • Agentic behavior with tool-calling capabilities to access
+                    inventory, customer profiles, and order history
+                  </li>
+                  <li>
+                    • Fine-tuned LLM for athletic apparel domain knowledge and
+                    sizing consistency
+                  </li>
+                  <li>
+                    • Advanced embedding model for semantic matching between
+                    customer preferences and product attributes
+                  </li>
+                  <li>
+                    • Real-time inventory integration with purchase completion
+                    capabilities
+                  </li>
+                </ul>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-dark px-3 py-1 rounded-md text-sm">Python</span>
+                <span class="bg-dark px-3 py-1 rounded-md text-sm"
+                  >LangChain</span
+                >
+                <span class="bg-dark px-3 py-1 rounded-md text-sm"
+                  >FastAPI</span
+                >
+                <span class="bg-dark px-3 py-1 rounded-md text-sm"
+                  >Vector DB</span
+                >
+                <span class="bg-dark px-3 py-1 rounded-md text-sm"
+                  >LLM Fine-tuning</span
+                >
+                <span class="bg-dark px-3 py-1 rounded-md text-sm">Redis</span>
+              </div>
+
+              <div class="bg-dark p-4 rounded-lg mb-6">
+                <h4 class="font-medium mb-3">Results:</h4>
+                <ul class="space-y-2 text-sm text-muted">
+                  <li>
+                    • 63% increase in conversion rate for recommended products
+                  </li>
+                  <li>
+                    • 47% reduction in product returns due to better fit
+                    recommendations
+                  </li>
+                  <li>
+                    • 4.8/5 customer satisfaction rating with the AI assistant
+                  </li>
+                </ul>
+              </div>
+
+              <a
+                href="#"
+                class="inline-flex items-center gap-2 text-accent1 animated-link"
+              >
+                <i class="bi bi-folder"></i>
+                <span>Case Study</span>
+              </a>
+            </div>
+
+            <div class="card bg-darkAccent p-6 rounded-lg">
+              <h3 class="font-fraunces text-2xl font-medium mb-3">
+                Attention Visualization (Attn1)
+              </h3>
+              <p class="text-muted mb-6">
+                Interactive tool for visualizing attention mechanisms in large
+                language models
+              </p>
+
+              <div class="mb-6">
+                <div
+                  class="h-64 bg-dark rounded-lg flex items-center justify-center mb-4"
+                >
+                  <div class="text-center px-4">
+                    <i class="bi bi-eye text-4xl text-accent1 mb-2"></i>
+                    <p class="text-muted">
+                      Interactive visualization of token attention in Llama 3.1
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <p class="text-muted">
+                  Attn1 provides insights into how language models process and
+                  attend to different parts of input text, making the internal
+                  mechanisms of LLMs more interpretable. This tool helps
+                  researchers understand attention patterns, contributing to AI
+                  interpretability research.
+                </p>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-dark px-3 py-1 rounded-md text-sm">Python</span>
+                <span class="bg-dark px-3 py-1 rounded-md text-sm">Flask</span>
+                <span class="bg-dark px-3 py-1 rounded-md text-sm"
+                  >Hugging Face</span
+                >
+                <span class="bg-dark px-3 py-1 rounded-md text-sm">D3.js</span>
+              </div>
+
+              <a
+                href="https://github.com/gamedevCloudy/attention-visualization"
+                target="_blank"
+                class="inline-flex items-center gap-2 text-accent1 animated-link"
+              >
+                <i class="bi bi-github"></i>
+                <span>View Project</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Achievements Section -->
+      <section class="py-24 bg-darkAccent bg-opacity-30">
+        <div class="container mx-auto px-6">
+          <div class="max-w-3xl mx-auto">
+            <h2
+              class="font-fraunces text-3xl font-bold mb-12 relative inline-block"
+            >
+              Achievements
+              <span
+                class="absolute bottom-0 left-0 w-1/2 h-1 bg-gradient-to-r from-accent1 to-accent2"
+              ></span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="card bg-darkAccent p-5 rounded-lg">
+                <div class="text-accent1 mb-2"><i class="bi bi-award"></i></div>
+                <h3 class="font-medium mb-1">GATE DA</h3>
+                <p class="text-muted text-sm">AIR 3867 (2025)</p>
+              </div>
+
+              <div class="card bg-darkAccent p-5 rounded-lg">
+                <div class="text-accent1 mb-2">
+                  <i class="bi bi-trophy"></i>
+                </div>
+                <h3 class="font-medium mb-1">WorldQuant Championship</h3>
+                <p class="text-muted text-sm">Bronze level, Global rank 257</p>
+              </div>
+
+              <div class="card bg-darkAccent p-5 rounded-lg">
+                <div class="text-accent1 mb-2">
+                  <i class="bi bi-code-slash"></i>
+                </div>
+                <h3 class="font-medium mb-1">StableCode Hackathon</h3>
+                <p class="text-muted text-sm">
+                  9th rank out of hundreds of teams
+                </p>
+              </div>
+
+              <div class="card bg-darkAccent p-5 rounded-lg">
+                <div class="text-accent1 mb-2"><i class="bi bi-git"></i></div>
+                <h3 class="font-medium mb-1">Open Source</h3>
+                <p class="text-muted text-sm">
+                  Contributions to Yabai, Amethyst, Waterfox
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-24">
+        <div class="container mx-auto px-6">
+          <div class="max-w-3xl mx-auto">
+            <h2
+              class="font-fraunces text-3xl font-bold mb-12 relative inline-block"
+            >
+              Contact
+              <span
+                class="absolute bottom-0 left-0 w-1/2 h-1 bg-gradient-to-r from-accent1 to-accent2"
+              ></span>
+            </h2>
+
+            <div class="card bg-darkAccent p-6 rounded-lg text-center">
+              <p class="text-lg mb-8">
+                Interested in AI interpretability, safety, or want to discuss
+                potential collaborations?
+              </p>
+
+              <div class="inline-flex items-center justify-center gap-2 mb-6">
+                <span class="h-1 w-16 bg-accent1 rounded-full"></span>
+                <span class="text-accent1"><i class="bi bi-envelope"></i></span>
+                <span class="h-1 w-16 bg-accent2 rounded-full"></span>
+              </div>
+
+              <a
+                href="mailto:aaayush.dev@gmail.com"
+                class="text-xl mb-8 block hover:text-accent1 transition-colors"
+                >aaayush.dev@gmail.com</a
+              >
+
+              <div class="flex justify-center space-x-6 mt-6">
+                <a
+                  href="https://github.com/gamedevCloudy"
+                  target="_blank"
+                  class="text-muted hover:text-accent1 transition-colors"
+                >
+                  <i class="bi bi-github text-2xl"></i>
+                </a>
+                <a
+                  href="https://in.linkedin.com/in/aayush-chaudhary-2b7b99208"
+                  target="_blank"
+                  class="text-muted hover:text-accent1 transition-colors"
+                >
+                  <i class="bi bi-linkedin text-2xl"></i>
+                </a>
+                <a
+                  href="https://cloudyin.itch.io"
+                  target="_blank"
+                  class="text-muted hover:text-accent1 transition-colors"
+                >
+                  <i class="bi bi-controller text-2xl"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 border-t border-darkAccent">
+      <div class="container mx-auto px-6">
+        <div
+          class="max-w-3xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-muted"
+        >
+          <p>© 2025 Aayush Chaudhary</p>
+          <p>AI Engineer | Researcher | Developer</p>
         </div>
       </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Scripts -->
+    <script>
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Subtle fade-in animation on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("fade-in");
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+
+      document.querySelectorAll("section > div > div, .card").forEach((el) => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px)";
+        el.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+        el.classList.add("observe-me");
+        observer.observe(el);
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".observe-me").forEach((el) => {
+          if (el.getBoundingClientRect().top < window.innerHeight) {
+            el.classList.add("fade-in");
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+          }
+        });
+      });
+
+      document.addEventListener("scroll", () => {
+        document.querySelectorAll(".fade-in").forEach((el) => {
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+        });
+      });
+
+      // Gradient movement on mousemove
+      document.addEventListener("mousemove", (e) => {
+        const gradients = document.querySelectorAll(".gradient-blur");
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        if (gradients[0]) {
+          gradients[0].style.transform = `translate(${x * 30}px, ${y * 30}px)`;
+        }
+        if (gradients[1]) {
+          gradients[1].style.transform = `translate(-${x * 30}px, -${
+            y * 30
+          }px)`;
+        }
+      });
+    </script>
   </body>
 </html>
